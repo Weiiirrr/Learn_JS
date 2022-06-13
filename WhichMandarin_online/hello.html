@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+        <script src="jspsych-6.3.1/jspsych.js"></script>
+        <script src="jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+        <link href="jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
+    </head>
+    <body></body>
+    <script>
+
+    function readTextFile(file)
+    {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function ()
+        {
+            if(rawFile.readyState === 4)
+            {
+                if(rawFile.status === 200 || rawFile.status == 0)
+                {
+                    var allText = rawFile.responseText;
+                    alert(allText);
+                }
+            }
+        }
+        rawFile.send(null);
+    }
+    test = readTextFile("file:///Users/weili/Documents/Access/2021S/Moving_Research_Online/WhichMandarin_online/Input.txt")
+
+    var hello_trial = {
+        type: 'html-keyboard-response',
+        stimulus: test
+    }
+
+    jsPsych.init({
+        timeline: [hello_trial]
+    })
+
+    </script>
+</html>
