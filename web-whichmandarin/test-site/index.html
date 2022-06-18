@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Which Mandarin</title>
+        <meta http-equiv='content-Type' content='text/html; charset=UTF-8'/>
+        <script src="../jspsych/dist/jspsych.js"></script>
+        <script src="../jspsych/dist/plugin-survey-html-audio.js"></script>
+        <script src="../jspsych/dist/plugin-survey-audio.js"></script>
+        <script src="../jspsych/dist/plugin-survey-likert-audio.js"></script>
+        <link href="../jspsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+      /* initialize jsPsych */
+      const jsPsych = initJsPsych();
+      /* create timeline */
+      var timeline = [];
+      /* define welcome message trial */
+      // var welcome = {
+      //   type: "html-keyboard-response",
+      //   stimulus: "Welcome to the experiment. Press any key to begin."
+      // };
+      // timeline.push(welcome);
+      // /* show instruction */
+      // var instructions = {
+      //   type: jsPsychHtmlKeyboardResponse,
+        // stimulus: `
+        //   <p>In this experiment, a circle will appear in the center
+        //   of the screen.</p><p>If the circle is <strong>blue</strong>,
+        //   press the letter F on the keyboard as fast as you can.</p>
+        //   <p>If the circle is <strong>orange</strong>, press the letter J
+        //   as fast as you can.</p>
+        //   <div style='width: 700px;'>
+        //   <div style='float: left;'><img src='img/blue.png'></img>
+        //   <p class='small'><strong>Press the F key</strong></p></div>
+        //   <div style='float: right;'><img src='img/orange.png'></img>
+        //   <p class='small'><strong>Press the J key</strong></p></div>
+        //   </div>
+        //   <p>Press any key to begin.</p>
+        // `,
+      //   post_trial_gap: 2000
+      // };
+      // timeline.push(instructions);
+
+      // for (let i = 0; i < questions.length; i++){
+      //   var multi_select_block = {
+      //     type: 'survey-multi-select',
+      //     questions: [
+      //       {
+      //         prompt: questions[i]["prompt"],
+      //         options: questions[i]["options"],
+      //         horizontal: false,
+      //         required: true,
+      //         name: 'q' + String(i+1)
+      //       }
+      //     ]
+      //   };
+      //   timeline.push(multi_select_block);
+      // }
+
+
+      //todo: make prompt display pinyin/html format
+      //https://github.com/jspsych/jsPsych/blob/main/packages/plugin-survey/src/index.ts
+      // learn how to build plugin maybe
+
+      const trial = {
+        type: jsPsychSurvey,
+        pages: [
+          [
+            {
+              type: 'likert-table',
+              prompt: 'how about ...?',
+              // '<span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;, serif"><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black"><ruby>你<rt style="font-size:12pt">nǐ</rt><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black">___</span></span></span><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black"><ruby>中<rt style="font-size:12pt">zhōng</rt><span style="font-size:14pt"><ruby>国<rt style="font-size:12pt">&nbsp;gu&oacute;</rt><span style="font-size:14pt"><ruby>人<rt style="font-size:12pt">&nbsp;r&eacute;n</rt><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black">___?</span></span></span></ruby></span></ruby></span></ruby></span></span></span></ruby></span></span></span></span></span>',
+              statements: [
+                {prompt: 'I like to eat vegetables', name: 'VeggiesTable'},
+                {prompt: 'I like to eat fruit', name: 'FruitTable'},
+                {prompt: 'I like to eat meat', name: 'MeatTable'},
+              ],
+              options: ['对', '错'],
+            }
+          ]
+        ],
+      };
+
+      var trial2 = {
+          type: jsPsychSurveyHtmlForm,
+          preamble: '<span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;, serif"><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black"><ruby>你<rt style="font-size:12pt">nǐ</rt><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black">___</span></span></span><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black"><ruby>中<rt style="font-size:12pt">zhōng</rt><span style="font-size:14pt"><ruby>国<rt style="font-size:12pt">&nbsp;gu&oacute;</rt><span style="font-size:14pt"><ruby>人<rt style="font-size:12pt">&nbsp;r&eacute;n</rt><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black">___?</span></span></span></ruby></span></ruby></span></ruby></span></span></span></ruby></span></span></span></span></span>',
+          html: '<p> I am feeling <input name="first" type="text" />, <input name="second" type="text" />, and <input name="third" type="text" />.</p>'
+      };
+
+      var trial3 = {
+        type: jsPsychSurveyLikert,
+        questions: [
+          {
+            prompt: '<span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;, serif"><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black"><ruby>你<rt style="font-size:12pt">nǐ</rt><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black">___</span></span></span><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black"><ruby>中<rt style="font-size:12pt">zhōng</rt><span style="font-size:14pt"><ruby>国<rt style="font-size:12pt">&nbsp;gu&oacute;</rt><span style="font-size:14pt"><ruby>人<rt style="font-size:12pt">&nbsp;r&eacute;n</rt><span style="font-size:14pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;, sans-serif"><span style="color:black">___?</span></span></span></ruby></span></ruby></span></ruby></span></span></span></ruby></span></span></span></span></span>', 
+            labels: ["对", "错"],
+            statements: [
+                {prompt: 'I like to eat vegetables', name: 'VeggiesTable'},
+                {prompt: 'I like to eat fruit', name: 'FruitTable'},
+                {prompt: 'I like to eat meat', name: 'MeatTable'},
+            ],
+          }
+        ]
+      };
+
+
+      timeline.push(trial, trial3);
+
+      /* start the experiment */
+      jsPsych.run(timeline);
+
+    </script>
+</html>
+
+
+<!-- 
+to-do: 
+  practice question?: https://github.com/jspsych/jsPsych/discussions/1907
+  add language choice: https://github.com/jspsych/jsPsych/discussions/1868
+  audio 
+-->
+
+
+statements: [
+{prompt: 'I like to eat vegetables', name: 'VeggiesTable'},
+{prompt: 'I like to eat fruit', name: 'FruitTable'},
+{prompt: 'I like to eat meat', name: 'MeatTable'},
+];
+console.log(statements[0])

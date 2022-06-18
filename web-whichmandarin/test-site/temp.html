@@ -1,0 +1,99 @@
+<fieldset>
+    <legend data-bind="attr: { 'aria-label': question.locTitle.renderedHtml }" aria-label="how about ...?"></legend>
+    <table data-bind="css: question.koCss().root" class="sv_q_matrix">
+      <!-- ko if: question.showHeader -->
+        <thead>
+            <tr>
+                <td data-bind="visible: question.hasRows"></td>
+                    <th data-bind="css: question.koCss().headerCell">
+                        <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">对</span>
+                    </th>
+                    <th data-bind="css: question.koCss().headerCell">
+                        <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">错</span>
+                    </th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr data-bind="css: row.rowClasses">
+                    <td data-bind="visible: question.hasRows, css: question.koCss().cell" class="sv_q_m_cell">      
+                        <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">I like to eat vegetables</span>
+                    </td>
+                    <td data-bind="attr: { 'data-responsive-title': $data.locText.renderedHtml }, css: question.koCss().cell" data-responsive-title="对" class="sv_q_m_cell">
+                        <label data-bind="css: question.getItemClass(row, $data)" class="sv_q_m_label">
+                            <input type="radio" data-bind="css: question.koCss().itemValue, attr: { name: row.fullName, 'aria-required': question.ariaRequired, 'aria-label': $data.locText.renderedHtml, 'aria-invalid': question.ariaInvalid, 'aria-describedby': question.ariaDescribedBy, id: question.inputId + '_' + row.name + '_' + $index() }, checkedValue: $data.value, checked: row.value, enable: !question.isInputReadOnly" name="sq_100_VeggiesTable" aria-required="false" aria-label="对" aria-invalid="false" id="sq_100i_VeggiesTable_0" value="0">
+                            <span data-bind="css: question.koCss().materialDecorator"></span>
+                            <span data-bind="visible: question.isMobile, css: question.koCss().cellResponsiveTitle" class="sv-hidden" style="display: none;">
+                                <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">对</span>
+                            </span>
+                        </label>
+                    </td>
+                    <td data-bind="attr: { 'data-responsive-title': $data.locText.renderedHtml }, css: question.koCss().cell" data-responsive-title="错" class="sv_q_m_cell">
+                        <label data-bind="css: question.getItemClass(row, $data)" class="sv_q_m_label">
+                            <input type="radio" data-bind="css: question.koCss().itemValue, attr: { name: row.fullName, 'aria-required': question.ariaRequired, 'aria-label': $data.locText.renderedHtml, 'aria-invalid': question.ariaInvalid, 'aria-describedby': question.ariaDescribedBy, id: question.inputId + '_' + row.name + '_' + $index() }, checkedValue: $data.value, checked: row.value, enable: !question.isInputReadOnly" name="sq_100_VeggiesTable" aria-required="false" aria-label="错" aria-invalid="false" id="sq_100i_VeggiesTable_1" value="1">
+                            <span data-bind="css: question.koCss().materialDecorator"></span>
+                            <span data-bind="visible: question.isMobile, css: question.koCss().cellResponsiveTitle" class="sv-hidden" style="display: none;">
+                                <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">错</span>
+                            </span>
+                        </label>
+                    </td>
+                </tr>
+                <tr data-bind="css: row.rowClasses">
+                    <td data-bind="visible: question.hasRows, css: question.koCss().cell" class="sv_q_m_cell">
+                        <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">I like to eat fruit</span>
+                    </td>
+                    <td data-bind="attr: { 'data-responsive-title': $data.locText.renderedHtml }, css: question.koCss().cell" data-responsive-title="对" class="sv_q_m_cell">
+                        <label data-bind="css: question.getItemClass(row, $data)" class="sv_q_m_label">
+                            <input type="radio" data-bind="css: question.koCss().itemValue, attr: { name: row.fullName, 'aria-required': question.ariaRequired, 'aria-label': $data.locText.renderedHtml, 'aria-invalid': question.ariaInvalid, 'aria-describedby': question.ariaDescribedBy, id: question.inputId + '_' + row.name + '_' + $index() }, checkedValue: $data.value, checked: row.value, enable: !question.isInputReadOnly" name="sq_100_FruitTable" aria-required="false" aria-label="对" aria-invalid="false" id="sq_100i_FruitTable_0" value="0">
+                            <span data-bind="css: question.koCss().materialDecorator">
+                                <!-- ko if: question.itemSvgIcon --><!-- /ko -->
+                            </span>
+                            <span data-bind="visible: question.isMobile, css: question.koCss().cellResponsiveTitle" class="sv-hidden" style="display: none;">
+                                <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">对</span>
+                                <!-- /ko -->
+                                <!-- ko if: locString.koHasHtml --><!-- /ko --><!-- /ko -->
+                                <!-- /ko -->
+                            </span>
+                        </label>
+                    </td>
+                    <td data-bind="attr: { 'data-responsive-title': $data.locText.renderedHtml }, css: question.koCss().cell" data-responsive-title="错" class="sv_q_m_cell">
+                        <label data-bind="css: question.getItemClass(row, $data)" class="sv_q_m_label">
+                            <input type="radio" data-bind="css: question.koCss().itemValue, attr: { name: row.fullName, 'aria-required': question.ariaRequired, 'aria-label': $data.locText.renderedHtml, 'aria-invalid': question.ariaInvalid, 'aria-describedby': question.ariaDescribedBy, id: question.inputId + '_' + row.name + '_' + $index() }, checkedValue: $data.value, checked: row.value, enable: !question.isInputReadOnly" name="sq_100_FruitTable" aria-required="false" aria-label="错" aria-invalid="false" id="sq_100i_FruitTable_1" value="1">
+                            <span data-bind="css: question.koCss().materialDecorator">
+                                <!-- ko if: question.itemSvgIcon --><!-- /ko -->
+                            </span>
+                            <span data-bind="visible: question.isMobile, css: question.koCss().cellResponsiveTitle" class="sv-hidden" style="display: none;">
+                                <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">错</span>
+                            </span>
+                        </label>
+                    </td>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </tr>
+                <tr data-bind="css: row.rowClasses">
+                    <td data-bind="visible: question.hasRows, css: question.koCss().cell" class="sv_q_m_cell">
+                        <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">I like to eat meat</span>
+                    </td>
+                    <td data-bind="attr: { 'data-responsive-title': $data.locText.renderedHtml }, css: question.koCss().cell" data-responsive-title="对" class="sv_q_m_cell">
+                        <label data-bind="css: question.getItemClass(row, $data)" class="sv_q_m_label">
+                            <input type="radio" data-bind="css: question.koCss().itemValue, attr: { name: row.fullName, 'aria-required': question.ariaRequired, 'aria-label': $data.locText.renderedHtml, 'aria-invalid': question.ariaInvalid, 'aria-describedby': question.ariaDescribedBy, id: question.inputId + '_' + row.name + '_' + $index() }, checkedValue: $data.value, checked: row.value, enable: !question.isInputReadOnly" name="sq_100_MeatTable" aria-required="false" aria-label="对" aria-invalid="false" id="sq_100i_MeatTable_0" value="0">
+                            <span data-bind="css: question.koCss().materialDecorator">
+                            </span>
+                            <span data-bind="visible: question.isMobile, css: question.koCss().cellResponsiveTitle" class="sv-hidden" style="display: none;">
+                            <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">对</span>
+                            </span>
+                        </label>
+                    </td>
+                    <td data-bind="attr: { 'data-responsive-title': $data.locText.renderedHtml }, css: question.koCss().cell" data-responsive-title="错" class="sv_q_m_cell">
+                        <label data-bind="css: question.getItemClass(row, $data)" class="sv_q_m_label">
+                            <input type="radio" data-bind="css: question.koCss().itemValue, attr: { name: row.fullName, 'aria-required': question.ariaRequired, 'aria-label': $data.locText.renderedHtml, 'aria-invalid': question.ariaInvalid, 'aria-describedby': question.ariaDescribedBy, id: question.inputId + '_' + row.name + '_' + $index() }, checkedValue: $data.value, checked: row.value, enable: !question.isInputReadOnly" name="sq_100_MeatTable" aria-required="false" aria-label="错" aria-invalid="false" id="sq_100i_MeatTable_1" value="1">
+                            <span data-bind="css: question.koCss().materialDecorator">
+                            </span>
+                            <span data-bind="visible: question.isMobile, css: question.koCss().cellResponsiveTitle" class="sv-hidden" style="display: none;">
+                            <span class="sv-string-viewer" data-bind="text: locString.koRenderedHtml">错</span>
+                            </span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</fieldset>
